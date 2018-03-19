@@ -2,17 +2,17 @@
  * https://www.devmedia.com.br/utilizando-arquivos-de-propriedades-no-java/25546
  * https://stackoverflow.com/questions/15337409/updating-property-value-in-properties-file-without-deleting-other-values
  */
-package br.com.gruposb.services.properties;
+package br.com.gruposb.utilidades.properties;
 
-import br.com.gruposb.servicos.criptografia.EncryptionService;
-import br.com.gruposb.servicos.logger.LoggerService;
+import br.com.gruposb.utilidades.criptografia.EncryptionService;
+import br.com.gruposb.utilidades.logger.LoggerService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-import br.com.gruposb.services.utilidades.UtilConstantes;
-import br.com.gruposb.servicos.arquivos.UtilArquivos;
+import br.com.gruposb.utilidades.utilidades.UtilConstantes;
+import br.com.gruposb.utilidades.arquivos.UtilArquivos;
 
 /**
  *

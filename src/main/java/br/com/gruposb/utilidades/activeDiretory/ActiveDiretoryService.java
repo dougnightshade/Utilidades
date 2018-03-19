@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.gruposb.servicos.activeDiretory;
+package br.com.gruposb.utilidades.activeDiretory;
 
 import java.awt.HeadlessException;
 import java.util.Hashtable;

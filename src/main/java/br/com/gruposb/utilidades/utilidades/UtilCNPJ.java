@@ -1,4 +1,4 @@
-package br.com.gruposb.services.utilidades;
+package br.com.gruposb.utilidades.utilidades;
 
 import java.util.InputMismatchException;
 

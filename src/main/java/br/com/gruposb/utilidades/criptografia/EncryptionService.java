@@ -1,10 +1,10 @@
-package br.com.gruposb.servicos.criptografia;
+package br.com.gruposb.utilidades.criptografia;
 
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
 import javax.crypto.Cipher;
-import br.com.gruposb.services.utilidades.UtilConstantes;
+import br.com.gruposb.utilidades.utilidades.UtilConstantes;
 
 /**
  * @author douglas.santos

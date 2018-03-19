@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.gruposb.servicos.arquivos;
+package br.com.gruposb.utilidades.arquivos;
 
-import br.com.gruposb.services.utilidades.UtilConstantes;
+import br.com.gruposb.utilidades.utilidades.UtilConstantes;
 import java.awt.HeadlessException;
 import java.io.BufferedReader;
 import java.io.File;

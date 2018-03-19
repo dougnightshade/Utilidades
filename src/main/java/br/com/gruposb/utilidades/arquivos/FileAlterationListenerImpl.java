@@ -1,7 +1,7 @@
-package br.com.gruposb.servicos.arquivos;
+package br.com.gruposb.utilidades.arquivos;
 
-import br.com.gruposb.services.utilidades.UtilConstantes;
-import br.com.gruposb.servicos.logger.LoggerService;
+import br.com.gruposb.utilidades.utilidades.UtilConstantes;
+import br.com.gruposb.utilidades.logger.LoggerService;
 import java.io.File;
 import org.apache.commons.io.monitor.FileAlterationListener;
 import org.apache.commons.io.monitor.FileAlterationObserver;

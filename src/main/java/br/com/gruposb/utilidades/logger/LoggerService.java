@@ -1,12 +1,12 @@
-package br.com.gruposb.servicos.logger;
+package br.com.gruposb.utilidades.logger;
 
-import br.com.gruposb.servicos.arquivos.UtilArquivos;
+import br.com.gruposb.utilidades.arquivos.UtilArquivos;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.LocalDateTime;
 import javax.swing.JTextArea;
-import br.com.gruposb.services.utilidades.UtilConstantes;
+import br.com.gruposb.utilidades.utilidades.UtilConstantes;
 import javax.swing.JTextPane;
 
 /**

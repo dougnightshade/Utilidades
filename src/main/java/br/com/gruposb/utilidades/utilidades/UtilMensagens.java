@@ -5,7 +5,7 @@
  * Bases:
  * -http://www.guj.com.br/t/joptionpane-por-2-segundos/92191/2
  */
-package br.com.gruposb.services.utilidades;
+package br.com.gruposb.utilidades.utilidades;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
