@@ -20,8 +20,8 @@ public abstract class NewJInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Ativa ou desativa os campos
      *
-     * @param ativo
+     * @param status Boolean
      */
-    public abstract void ctrlCampos(Boolean ativo);//</ctrlCampos>
+    public abstract void ctrlCampos(Boolean status);//</ctrlCampos>
 
 }//</(NewJInternalFrame)>

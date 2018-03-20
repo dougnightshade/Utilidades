@@ -33,6 +33,7 @@ public interface UtilConstantes {
         String DIR_DOWNLOADS = "./Downloads/";
         String DIR_LOGS = "./logs/" + HOJE + "/";
         String DIR_LOGS_PRINCIPAL = "./logs/";
+        String DIR_RELATORIOS = System.getProperty("user.home");
     }
 
     /**
