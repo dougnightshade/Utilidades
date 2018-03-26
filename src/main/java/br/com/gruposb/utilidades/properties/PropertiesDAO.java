@@ -17,12 +17,14 @@ import br.com.gruposb.utilidades.arquivos.UtilArquivos;
 /**
  *
  * @author douglas
+ *
+ * Classe desenvolvida para trabalhar com arquivos de propriedades do java
  */
 public class PropertiesDAO {
 
     static File arqProp;
 
-    LoggerService obLoggerService = new LoggerService(PropertiesDAO.class);
+    LoggerService OB_LOGGER_SERVICE = new LoggerService(PropertiesDAO.class);
 
     /**
      * Configura a classe com o arquivo de propriedade especificado
@@ -31,9 +33,6 @@ public class PropertiesDAO {
      * propriedades
      */
     public PropertiesDAO(String locArqPropriedades) {
-        /* Cria o arquivo caso ele não exista */
-//        UtilArquivos obUtilArquivos = new UtilArquivos(new File(locArqPropriedades));
-
         /* Configura o arquivo para a utilização na classe */
         arqProp = new File(locArqPropriedades);
     }
@@ -47,7 +46,7 @@ public class PropertiesDAO {
      *
      * @return Properties
      */
-    public Properties abrirProperties() {
+    private Properties abrirProperties() {
 
         Properties obProperties = new Properties();
         File obFile;
@@ -59,7 +58,7 @@ public class PropertiesDAO {
             obProperties.load(obFileInputStream);
 
         } catch (IOException e) {
-            obLoggerService.error(e, "openProperties");
+            OB_LOGGER_SERVICE.error(e, "openProperties >> IOException");
         }
 
         return obProperties;
@@ -76,7 +75,7 @@ public class PropertiesDAO {
      */
     public String lerPropriedade(String propriedade) {
 
-        String valor = "";
+        String valor = null;
 
         try {
 
@@ -85,7 +84,7 @@ public class PropertiesDAO {
             valor = obProperties.getProperty(propriedade);
 
         } catch (Exception e) {
-            obLoggerService.error(e, "lerPropriedade >> Exception");
+            OB_LOGGER_SERVICE.error(e, "lerPropriedade >> Exception");
         }
 
         return valor;
@@ -113,7 +112,9 @@ public class PropertiesDAO {
             return true;
 
         } catch (IOException e) {
-            obLoggerService.error(e, "saveOrUpdateLocalProperty");
+            OB_LOGGER_SERVICE.error(e, "saveOrUpdateLocalProperty >> IOException");
+        } catch (Exception e) {
+            OB_LOGGER_SERVICE.error(e, "saveOrUpdateLocalProperty >> Exception");
         }
 
         return false;

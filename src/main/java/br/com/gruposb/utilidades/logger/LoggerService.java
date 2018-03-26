@@ -188,6 +188,12 @@ public class LoggerService {
 
     }//</console>
 
+    /**
+     * Exclui os arquivos de log de acordo com a quando de dias que o log existe
+     * A quantidade de dias por padrão de requisitada do arquivo de propriedades
+     * principal, mas caso não seja encontrada e utilizado a quantidade padrão
+     * definida nas Utilidades
+     */
     private void excluirArqslogPorDias() {
 
         PropertiesDAO obPropertiesDAO;
