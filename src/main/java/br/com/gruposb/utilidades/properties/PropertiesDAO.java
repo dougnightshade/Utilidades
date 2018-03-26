@@ -4,15 +4,12 @@
  */
 package br.com.gruposb.utilidades.properties;
 
-import br.com.gruposb.utilidades.criptografia.EncryptionService;
 import br.com.gruposb.utilidades.logger.LoggerService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
-import br.com.gruposb.utilidades.utilidades.UtilConstantes;
-import br.com.gruposb.utilidades.arquivos.UtilArquivos;
 
 /**
  *

@@ -37,18 +37,6 @@ public interface UtilConstantes {
     }
 
     /**
-     * Senhas especificadas no sistema
-     *
-     * Colocado para resolução de problemas com saida de programadores
-     */
-    public interface SENHAS {
-
-        String SENHA_MESTRA = "Dev20180102@grupoSB";
-        String CHAVE_ENCRIPTACAO = "AAAAAAAAAAAAAAAAAAAAAAAA";
-
-    }
-
-    /**
      * Status desenvoldidos para o controle de notas
      * <br>Quando e verificado a emissão de uma nota ela pode receber dois
      * status ou EMITIDA ou CANCELADA pois não e baixada nenhuma nota que já foi
@@ -70,6 +58,5 @@ public interface UtilConstantes {
         String LOG_QTDDIAS_EXCLUSAO_DESC = "log.qtddias.exclusao";
         String LOG_QTDDIAS_EXCLUSAO_VAL = "180";
         String SENHA_PADRAO_DESC = "password.default";
-        String SENHA_PADRAO_VAL = SENHAS.SENHA_MESTRA;
     }
 }
