@@ -61,4 +61,15 @@ public interface UtilConstantes {
         Integer FECHADA = 1;
 
     }
+
+    /**
+     * Propriedades padrão para qualquer sistema
+     */
+    public interface PROPRIEDADES_PADRAO {
+
+        String LOG_QTDDIAS_EXCLUSAO_DESC = "log.qtddias.exclusao";
+        String LOG_QTDDIAS_EXCLUSAO_VAL = "180";
+        String SENHA_PADRAO_DESC = "password.default";
+        String SENHA_PADRAO_VAL = SENHAS.SENHA_MESTRA;
+    }
 }

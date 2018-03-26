@@ -1,12 +1,15 @@
 package br.com.gruposb.utilidades.logger;
 
 import br.com.gruposb.utilidades.arquivos.UtilArquivos;
+import br.com.gruposb.utilidades.properties.PropertiesDAO;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.LocalDateTime;
 import javax.swing.JTextArea;
 import br.com.gruposb.utilidades.utilidades.UtilConstantes;
+import java.time.LocalDate;
+import java.time.Period;
 import javax.swing.JTextPane;
 
 /**
@@ -32,8 +35,9 @@ public class LoggerService {
      */
     public LoggerService(Class classe, String arqLog) {
         this.obUtilArquivos = new UtilArquivos(new File(arqLog));
-
         this.classe = classe;
+
+        excluirArqslogPorDias();
     }
 
     /**
@@ -183,5 +187,96 @@ public class LoggerService {
         }
 
     }//</console>
+
+    private void excluirArqslogPorDias() {
+
+        PropertiesDAO obPropertiesDAO;
+
+        File dirLogs = new File(UtilConstantes.PASTAS.DIR_LOGS_PRINCIPAL);
+        File fileDirLogs[];
+        File filesToDelete[]; //Lista de arquivo que estão dentro do diretorio para ser deletado
+
+        fileDirLogs = dirLogs.listFiles();
+
+        LocalDate dtDelete = LocalDate.now();
+
+        String strQtdDiasExclusao = UtilConstantes.PROPRIEDADES_PADRAO.LOG_QTDDIAS_EXCLUSAO_VAL; // Necessário para verificar se o arquivo e nulo
+        Long longQtdDiasExclusao = new Long(UtilConstantes.PROPRIEDADES_PADRAO.LOG_QTDDIAS_EXCLUSAO_VAL); // Valor utilizado depois da verificações
+
+        /**
+         * /////////////////////////////////////////////////////////////////////////////
+         * Por padrão os logs são guardados em pastas com a data de criação do
+         * arquivo
+         * /////////////////////////////////////////////////////////////////////////////
+         * Por padrão os logs são excluidos a cada 180 dias
+         * /////////////////////////////////////////////////////////////////////////////
+         */
+        try {
+
+            /* Verifica se o arquivo de propriedades existe */
+            File arqPropriedades = new File(UtilConstantes.ARQUIVOS.ARQ_PROPRIEDADES);
+            if (arqPropriedades.exists()) {
+                obPropertiesDAO = new PropertiesDAO(UtilConstantes.ARQUIVOS.ARQ_PROPRIEDADES);
+
+                obPropertiesDAO.lerPropriedade(UtilConstantes.PROPRIEDADES_PADRAO.LOG_QTDDIAS_EXCLUSAO_DESC);
+
+                /* Verifica se existe a pripriedade */
+                if (strQtdDiasExclusao != null) {
+                    longQtdDiasExclusao = Long.valueOf(strQtdDiasExclusao);
+                }
+            }
+
+            /* Calcula a data de exclusão */
+            dtDelete = dtDelete.minusDays(longQtdDiasExclusao);
+            System.out.println("Data para apagar logs: " + dtDelete);
+
+            /* Para cada pasta do diretório principal de logs */
+            for (File fileDirLog : fileDirLogs) {
+
+                /**
+                 * /////////////////////////////////////////////////////////////////////////////
+                 * Gera a data com base no nome da pasta
+                 * /////////////////////////////////////////////////////////////////////////////
+                 */
+                LocalDate nomePasta;
+
+                Integer dia = Integer.parseInt(fileDirLog.getName().substring(8, 10));
+                Integer mes = Integer.parseInt(fileDirLog.getName().substring(5, 7));
+                Integer ano = Integer.parseInt(fileDirLog.getName().substring(0, 4));
+
+                nomePasta = LocalDate.of(ano, mes, dia);
+
+                /* Verifica se a data que a pasta representa e anterior a data de exclusão */
+                Period obPeriod = dtDelete.until(nomePasta);
+
+                System.out.println("Periodo: " + obPeriod.isNegative());
+
+                if (obPeriod.isNegative()) {
+
+                    System.out.println("Deleando pasta: " + nomePasta);
+
+                    /* Busca pos arquivos dentro da pasta atual */
+                    filesToDelete = fileDirLog.listFiles();
+
+                    for (File file : filesToDelete) {
+                        /* Realiza a tentatica de deletar */
+                        if (file.delete()) {
+                            file.deleteOnExit();
+                        }
+                    }
+
+                    /* Deleta a pasta */
+                    if (fileDirLog.delete()) {
+                        fileDirLog.deleteOnExit();
+                    }
+                }
+            }
+        } catch (NumberFormatException e) {
+            error(e, "verificarTamanho >> Exception");
+        } catch (Exception e) {
+            error(e, "verificarTamanho >> Exception");
+        }
+
+    }
 
 }//</ServiceLogger>

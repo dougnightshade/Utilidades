@@ -1,0 +1,9 @@
+#surefire
+#Mon Mar 26 13:45:06 BOT 2018
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=D\:\\Projetos\\Utilidades
+file.encoding=UTF-8
+localRepository=C\:\\Users\\douglas.santos\\.m2\\repository
+java.net.useSystemProxies=true
+basedir=D\:\\Projetos\\Utilidades
+test=br.com.gruposb.logger.LoggerServiceTest\#gerarArqLog

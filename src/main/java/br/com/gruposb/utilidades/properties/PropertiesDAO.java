@@ -85,7 +85,7 @@ public class PropertiesDAO {
             valor = obProperties.getProperty(propriedade);
 
         } catch (Exception e) {
-            obLoggerService.error(e, "readLocalProperty");
+            obLoggerService.error(e, "lerPropriedade >> Exception");
         }
 
         return valor;

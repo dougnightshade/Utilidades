@@ -109,7 +109,7 @@ public class UtilArquivos {
             FileWriter obFileWriter = new FileWriter(this.ARQUIVO, true);
 
             obFileWriter.write(linha);
-//            obFileWriter.write("\n");
+            obFileWriter.write("\n");
 
             obFileWriter.close();
 
@@ -241,7 +241,7 @@ public class UtilArquivos {
      */
     public static File salvarArquivo(String extensao) {
 
-        File arquivo = new File(UtilConstantes.PASTAS.DIR_DOWNLOADS);
+        File arquivo = new File(System.getProperty("user.home"));
 
         try {
 
