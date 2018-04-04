@@ -161,7 +161,7 @@ public class UtilArquivos {
      */
     public static File selecionarArquivo() {
 
-        File arquivo = new File("./");
+        File arquivo = new File(System.getProperty("user.home"));
 
         try {
 
@@ -199,7 +199,7 @@ public class UtilArquivos {
      */
     public static File selecionarArquivo(String descricao, String extensao) {
 
-        File arquivo = new File("./");
+        File arquivo = new File(System.getProperty("user.home"));
 
         try {
 
