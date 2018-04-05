@@ -8,6 +8,8 @@ import java.awt.Dimension;
  * Adiciona métodos e funções para um JInternalFrame
  */
 public abstract class NewJInternalFrame extends javax.swing.JInternalFrame {
+    
+    private String usuario;
 
     /**
      * Recupera o ponto centra do monitor e centraliza frame

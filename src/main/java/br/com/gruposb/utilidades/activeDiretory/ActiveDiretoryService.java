@@ -31,16 +31,18 @@ public class ActiveDiretoryService {
         authEnv.put(Context.SECURITY_AUTHENTICATION, "simple");
         authEnv.put(Context.SECURITY_PRINCIPAL, userName);
         authEnv.put(Context.SECURITY_CREDENTIALS, Password);
-        
+
         try {
             // Cria um Initial Context
             obDirContext = new InitialDirContext(authEnv);
         } catch (NamingException ne) {
-            System.out.println("AutenticarAD -> AutenticarAD");
+            System.out.println("AutenticarAD >> AutenticarAD");
             ne.printStackTrace();
         } finally {
             if (obDirContext != null) {
                 bResult = true;
+            } else {
+                bResult = false;
             }
         }
         return bResult;

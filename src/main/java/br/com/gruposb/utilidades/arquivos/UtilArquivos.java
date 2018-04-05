@@ -293,4 +293,37 @@ public class UtilArquivos {
 //        }
 //
 //    }//</excluirArqPorTamanho>
+    /**
+     * Retorna a extensão do arquivo passado via parâmetro
+     *
+     * @param obFile File
+     * @return String
+     */
+    public static String verificarExtensao(File obFile) {
+
+        String extensao = "";
+        String[] divisao; // Recebe o vetor da divisão do nome do arquivo por ponto
+
+        Integer ultPosi;
+
+        try {
+
+            /* O método split não funciona com ponto, por isso o ponto e alterado para ponto e virgula */
+            divisao = obFile.getName().replace(".", ";").split(";");
+
+            /* extensão recebe a ultima posição do array que repesenta a extensão */
+            extensao = divisao[divisao.length - 1];
+
+        } catch (HeadlessException e) {
+            System.out.println("verificarExtensão >> HeadlessException");
+            e.printStackTrace();
+
+        } catch (Exception e) {
+            System.out.println("verificarExtensão >> Exception");
+            e.printStackTrace();
+        }
+
+        return extensao;
+    }//</verificarExtensao>
+
 }
