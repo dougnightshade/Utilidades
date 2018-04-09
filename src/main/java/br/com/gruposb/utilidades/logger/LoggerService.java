@@ -36,8 +36,6 @@ public class LoggerService {
     public LoggerService(Class classe, String arqLog) {
         this.obUtilArquivos = new UtilArquivos(new File(arqLog));
         this.classe = classe;
-
-        excluirArqslogPorDias();
     }
 
     /**
